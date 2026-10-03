@@ -4,7 +4,6 @@ namespace PengooinLabs.ReplayMod
 {
     public class Colors
     {
-        public static Color halfTransparentBlack = new Color(0, 0, 0, .5f);
         public static Color transparent = new Color(0, 0, 0, 0);
         public static Color greenHoverColor = Color.green;
         public static Color gold = new Color(1, 215f / 255f, 0);

@@ -14,19 +14,23 @@ Replay any match inside the game! Skip back and forward in time! Watch your grea
 - Disk space for the saved replay files: Depends on how much was going on on the map. Usually in the range of a few dozen MB, ~ 200MB max for a full match. Bottom line, a fraction of what a video file would require. Check help in the menu to see where replay files are stored (by default `UserData\ReplayMod\replays`). You can change the path after first running the game by editing the `[ReplayMod]`/`replay-files-path` entry in `UserData\MelonPreferences.cfg`.
 - RAM: Consumption when loading a replay file varies depending on the size of the loaded data. 2GB spare RAM should do the trick.
 
-# Installation
+# Manual installation
 
 Note: This was developed for and has only been tested on Windows / Steam version, Gang Beasts v1.28!
  
 - Download and install [MelonLoader](https://melonwiki.xyz) (developed on v0.7.3 beta)
 - Download **ReplayMod.dll** from the [releases section](https://github.com/PengooinLabs/GangBeastsReplayMod/releases) and copy it to the `Gang Beasts/Mods` folder
 
+# Managed installation
+
+- Install via [Thunderstore](https://thunderstore.io/c/gang-beasts/p/PengooinLabs/ReplayMod)
+
 # Usage
 
 - Start the game.
 - Go to Local or Online game menu and enable recording at the bottom of the screen.
 - Play as usual. The match will be recorded in the background.
-- Go to LOCAL Game menu, click 'Load replay' at the bottom of the screen to open the replay list.
+- Go to LOCAL Game menu, click 'Load replay' at the bottom of the screen to open the replay list (do NOT cause the countdown to run, or it will bug out!)
 - Click on a replay to load it and wait for the map to load and setup.
 - Click '?' in the player UI for player help.
 
@@ -55,7 +59,7 @@ Note: This was developed for and has only been tested on Windows / Steam version
 - Gamepad controls
   - Use right analog stick to rotate camera
   - Move left analog stick up/down to zoom in/out
-  - Press L/R keys to to switch to the next player on the left/right.
+  - Press L/R buttons to to switch to the next player on the left/right.
   - Hold left trigger (LT) and move left analog stick left/right to go slow motion (-1x..1x speed)
     + Additionally hold right trigger (RT) to go faster (-5x..5x speed).
   - Press WEST button to toggle play/pause.
@@ -76,7 +80,7 @@ Note: This was developed for and has only been tested on Windows / Steam version
 - **Gamepad left/right max rotation**: How fast the camera rotates up/down when using right analog stick
 - **Gamepad max zoom speed**: How fast the camera will move closer/further away when using left analog stick
 
-## Unity Explorer compatiblity options
+## Unity Explorer compatibility options
 
 - If you don't know what this means, leave everything at `No`
 - **Disable active-state enforcement**: If set to `Yes`, the active state of GameObjects is not overwritten each frame, allowing toggling them on or off in Unity Explorer. It comes with side effects such as wave actors not showing up until you set it to `No` again briefly.

@@ -1666,7 +1666,7 @@ namespace PengooinLabs.ReplayMod
             [HarmonyLib.HarmonyPrefix]
             public static bool CinemachineBrain_LateUpdate(CinemachineBrain __instance)
             {
-                if (Replay.modState == Replay.ModState.PlayingReplay && Replay.cfg_cameraMode.Value != CameraMode.DISABLED)
+                if (Replay.modState == Replay.ModState.PlayingReplay && Replay.cfg_cameraMode.Value != CameraMode.IGNORE)
                 {
                     return false;
                 }

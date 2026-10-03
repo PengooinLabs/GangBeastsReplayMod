@@ -21,7 +21,7 @@ using UnityEngine.Networking;
 using Il2CppGB.UI.Menu;
 using Il2CppGB.Game.Critters;
 using Il2CppGB.UI.Beasts;
-using Il2CppGB.UI.Lobby;
+
 
 namespace PengooinLabs.ReplayMod
 {

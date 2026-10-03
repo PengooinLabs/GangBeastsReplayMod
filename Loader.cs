@@ -365,12 +365,32 @@ namespace PengooinLabs.ReplayMod
                 catch (Exception err)
                 {
                     logError("Exception reading frames: " + err);
-                    // TODO improve processing of incomplete data
                 }
 
                 if (INVALID_DATA)
                 {
                     throw new Exception("Invalid Data");
+                }
+
+                // a truncated frame can leave behind an empty group entry
+                // (the group is created before the frame is fully read)
+                foreach (var key in frameGroups.Keys.Where(k => frameGroups[k].Count == 0).ToList())
+                {
+                    frameGroups.Remove(key);
+                }
+
+                // abort loading if no complete frame could be read
+                if (frameGroups.Count == 0)
+                {
+                    logError("no complete frames in replay file (incomplete data?), aborting load");
+                    return false;
+                }
+
+                // make sure there are any actors at all or it'll crash later
+                if (actorInfos.Count == 0)
+                {
+                    logError("replay contains no actors (incomplete data?), aborting load");
+                    return false;
                 }
 
                 // frameSeries are created here. we have to pad the item states
@@ -497,6 +517,19 @@ namespace PengooinLabs.ReplayMod
         // prepare the map/scene for the replay
         public void setupMapForReplay()
         {
+            try
+            {
+                setupMapForReplayImpl();
+            }
+            catch (Exception e)
+            {
+                logError("Exception in setupMapForReplay (incomplete replay data?): " + e);
+                Replay.abortLoading();
+            }
+        }
+
+        private void setupMapForReplayImpl()
+        {
             // freeze time during setup
             setTimeScale(0);
 
@@ -586,6 +619,14 @@ namespace PengooinLabs.ReplayMod
 
             }
 
+
+            if (spawnedActors.Count == 0)
+            {
+                logError("no actors in replay (incomplete data?), aborting");
+                Replay.abortLoading();
+                return;
+            }
+
             // wait until actor setup process completed
             waitForActorsReadyTimeout = 5f;
             Replay.nextSetupStep = replaySetup_waitForActorsReady;
@@ -594,6 +635,19 @@ namespace PengooinLabs.ReplayMod
         public float waitForActorsReadyTimeout = 0f;
 
         private void replaySetup_waitForActorsReady()
+        {
+            try
+            {
+                replaySetup_waitForActorsReadyImpl();
+            }
+            catch (Exception e)
+            {
+                logError("Exception in replaySetup_waitForActorsReady (incomplete replay data?): " + e);
+                Replay.abortLoading();
+            }
+        }
+
+        private void replaySetup_waitForActorsReadyImpl()
         {
             // an actor is ready when primaryColor was assigned. costume parts are spawned then.
             if (spawnedActors.Find(actor => Tools.isGrayColor(actor.primaryColor)) != null)

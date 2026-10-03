@@ -70,7 +70,7 @@ namespace PengooinLabs.ReplayMod
 
             if (UI.Option("Camera mode:", cameraModeString))
             {
-                cfg_cameraMode.Value = Tools.cycleOption<CameraMode>(new() { CameraMode.SURROUND, CameraMode.DISABLED }, cfg_cameraMode.Value);
+                cfg_cameraMode.Value = Tools.cycleOption<CameraMode>(new() { CameraMode.SURROUND, CameraMode.IGNORE }, cfg_cameraMode.Value);
             }
 
             if (Replay.cfg_cameraMode.Value == CameraMode.SURROUND)

@@ -71,7 +71,7 @@ namespace PengooinLabs.ReplayMod
 
         public enum CameraMode
         {
-            DISABLED = 0,
+            IGNORE = 0,
             SURROUND = 1,
         }
 
