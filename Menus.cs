@@ -111,7 +111,7 @@ namespace PengooinLabs.ReplayMod
                 if (mouseSensitivityX != Replay.cfg_mouse_sensitivity_x.Value) Replay.cfg_mouse_sensitivity_x.Value = mouseSensitivityX;
 
                 var mouseSensitivityY = (int)UI.SliderOption("Mouse rotation sensitivity (Y)", Replay.cfg_mouse_sensitivity_y.Value, Replay.cfg_mouse_sensitivity_y_min.Value, Replay.cfg_mouse_sensitivity_y_max.Value, 0);
-                if (mouseSensitivityX != Replay.cfg_mouse_sensitivity_y.Value) Replay.cfg_mouse_sensitivity_y.Value = mouseSensitivityY;
+                if (mouseSensitivityY != Replay.cfg_mouse_sensitivity_y.Value) Replay.cfg_mouse_sensitivity_y.Value = mouseSensitivityY;
 
                 var mouseSensitivityWheel = (int)UI.SliderOption("Mousewheel zoom sensitivity", Replay.cfg_mousewheel_zoom_sensitivity.Value, 20, 140, 0);
                 if (mouseSensitivityWheel != Replay.cfg_mousewheel_zoom_sensitivity.Value) Replay.cfg_mousewheel_zoom_sensitivity.Value = mouseSensitivityWheel;

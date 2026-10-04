@@ -1220,7 +1220,6 @@ namespace PengooinLabs.ReplayMod
                     // wheel
                     typeof(WheelEscalation),
                     typeof(WheelAmbientAudio),
-                    typeof(WheelRotator),
                     typeof(BurgerDwell),
                     typeof(wheelAxle),
                     typeof(WheelLight),
