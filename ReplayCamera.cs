@@ -206,7 +206,6 @@ namespace PengooinLabs.ReplayMod
         public float transitionTime = -1f;
         public Vector3? cameraTransitionStartPos = null;
         public Quaternion? cameraTransitionStartRot = null;
-        public float cameraTransitionTime = 0.6f; // TODO derive from distance?
 
         public void setCameraTransitionFrom(Vector3 position, Quaternion rotation)
         {

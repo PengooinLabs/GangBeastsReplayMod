@@ -9,13 +9,13 @@ using Il2CppGB.Game.Critters;
 using static PengooinLabs.ReplayMod.Types;
 using static MelonLoader.MelonLogger;
 
-[assembly: MelonInfo(typeof(PengooinLabs.ReplayMod.Replay), "ReplayMod", "1.0.2", "PengooinLabs")]
+[assembly: MelonInfo(typeof(PengooinLabs.ReplayMod.Replay), "ReplayMod", "1.0.3", "PengooinLabs")]
 
 namespace PengooinLabs.ReplayMod
 {
     public class Replay : MelonMod
     {
-        private static string _VERSION = "1.0.2";
+        private static string _VERSION = "1.0.3";
         private static string helpString = "Help";
         public static string VERSION { get { return _VERSION; } }
 
@@ -939,7 +939,6 @@ namespace PengooinLabs.ReplayMod
                     rigidbody.useGravity = false;
                 }
             }
-
         }
 
         public static int disableColliders()

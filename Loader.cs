@@ -764,7 +764,7 @@ namespace PengooinLabs.ReplayMod
 
             for (int i = 0; i < actorFrames.Count; i++)
             {
-                var transformKeys = actorFrames[i].states.Keys;
+                var transformKeys = actorFrames[i].states.Keys.ToList();
 
                 foreach (var key in transformKeys)
                 {

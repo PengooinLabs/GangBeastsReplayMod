@@ -88,7 +88,7 @@ namespace PengooinLabs.ReplayMod
             w.Write(clp.spatialBlendOverride);
         }
 
-        public static Vector3 ReadVector2(BinaryReader binaryReader)
+        public static Vector2 ReadVector2(BinaryReader binaryReader)
         {
             return new Vector2(
                 binaryReader.ReadSingle(),

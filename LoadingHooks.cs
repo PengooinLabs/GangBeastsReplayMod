@@ -32,6 +32,7 @@ namespace PengooinLabs.ReplayMod
                 __instance.internalOnHideCompleted += new Action(() =>
                 {
                     // call our callback when loading screen has disappeared
+                    // gets nulled automatically
                     if (onLoadingScreenHidden != null) onLoadingScreenHidden(sceneName);
                 });
             }

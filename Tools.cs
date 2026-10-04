@@ -207,6 +207,7 @@ namespace PengooinLabs.ReplayMod
             {
                 while (timeAccumulator >= fixedUpdateInterval)
                 {
+                    // drain is intentional, skip multiple calls
                     timeAccumulator -= fixedUpdateInterval;
                 }
                 if (onSubstFixedUpdate != null) onSubstFixedUpdate(fixedUpdateInterval);

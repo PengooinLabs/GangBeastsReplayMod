@@ -368,9 +368,6 @@ namespace PengooinLabs.ReplayMod
             // this reflects the current mouse state
             mouseButtonDown[button] = true;
 
-            // note that the drag-threshold of this button hasn't been crossed yet
-            mouseCrossedThreshold[button] = false;
-
             // not the drag start position for distance calculations
             dragStartPosition[button] = position;
 
@@ -423,7 +420,7 @@ namespace PengooinLabs.ReplayMod
         }
 
         // drag at least 5px to be treated as drag and not click
-        public float dragThreshold = 5f;
+        // public float dragThreshold = 5f;
 
         public void handleDragMove(DragButton button, Vector2 position, Vector2 delta)
         {
@@ -1609,11 +1606,6 @@ namespace PengooinLabs.ReplayMod
         public Dictionary<DragButton, Vector2> mouseStart = new() {
             { DragButton.Left, Vector2.zero },
             { DragButton.Right, Vector2.zero }
-        };
-
-        private Dictionary<DragButton, bool> mouseCrossedThreshold = new() {
-            { DragButton.Left, false },
-            { DragButton.Right, false }
         };
 
         public void update_drag(DragButton dragButton, Action<DragButton, Vector2> onStart, Action<DragButton, Vector2, Vector2> onMove, Action<DragButton, Vector2, Vector2> onEnd)
